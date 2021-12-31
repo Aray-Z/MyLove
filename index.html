@@ -5,7 +5,10 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
     <title>新年快乐</title>
-    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <!--<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>-->
+    <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.timers.js"></script>
     <style type="text/css">
         body,li,div,ol,ul{
             margin:0;
@@ -60,51 +63,51 @@
             background-size: 100% 100%;
         }
         .minbox li:nth-child(1){
-            background-image: url(./img/1.png);
+            background-image: url(./img/11.png);
             transform:translateZ(50px);
         }
         .minbox li:nth-child(2){
-            background-image: url(./img/2.png);
+            background-image: url(./img/22.png);
             transform:rotateX(180deg) translateZ(50px);
         }
         .minbox li:nth-child(3){
-            background-image: url(./img/3.png);
+            background-image: url(./img/33.png);
             transform:rotateX(-90deg) translateZ(50px);
         }
         .minbox li:nth-child(4){
-            background-image: url(./img/4.png);
+            background-image: url(./img/44.png);
             transform:rotateX(90deg) translateZ(50px);
         }
         .minbox li:nth-child(5){
-            background-image: url(./img/5.png);
+            background-image: url(./img/55.png);
             transform:rotateY(-90deg) translateZ(50px);
         }
         .minbox li:nth-child(6){
-            background-image: url(./img/6.png);
+            background-image: url(./img/66.png);
             transform:rotateY(90deg) translateZ(50px);
         }
         .maxbox li:nth-child(1){
-            background-image: url(./img/1.png);
+            background-image: url(./img/11.png);
             transform:translateZ(50px);
         }
         .maxbox li:nth-child(2){
-            background-image: url(./img/2.png);
+            background-image: url(./img/22.png);
             transform:translateZ(50px);
         }
         .maxbox li:nth-child(3){
-            background-image: url(./img/3.png);
+            background-image: url(./img/33.png);
             transform:rotateX(-90deg) translateZ(50px);
         }
         .maxbox li:nth-child(4){
-            background-image: url(./img/4.png);
+            background-image: url(./img/44.png);
             transform:rotateX(90deg) translateZ(50px);
         }
         .maxbox li:nth-child(5){
-            background-image: url(./img/5.png);
+            background-image: url(./img/55.png);
             transform:rotateY(-90deg) translateZ(50px);
         }
         .maxbox li:nth-child(6){
-            background-image: url(./img/6.png);
+            background-image: url(./img/66.png);
             transform:rotateY(90deg) translateZ(50px);
         }
         .maxbox{
@@ -204,10 +207,10 @@
         }
     </style>
 </head>
-<body background="img/background.jpg">
+<body background="img/background2.jpg">
 <div class="box-container">
     <div class="box">
-        <ul class="minbox">
+        <ul class="minbox" style="position: relative">
             <li></li>
             <li></li>
             <li></li>
@@ -215,6 +218,23 @@
             <li></li>
             <li></li>
         </ul>
+        <div style="color: red;position: absolute;top: -10px;left: 53px;">张磊♥吴婷婷</div>
+        <div style="color: red;position: absolute;top: 25px;left: 20px;">
+            <ul>
+                <li>与</li>
+                <li>子</li>
+                <li>偕</li>
+                <li>老</li>
+            </ul>
+        </div>
+        <div style="color: red;position: absolute;top: 30px;left: 160px;">
+            <ul>
+                <li>执</li>
+                <li>子</li>
+                <li>之</li>
+                <li>手</li>
+            </ul>
+        </div>
         <ol class="maxbox">
             <li></li>
             <li></li>
@@ -227,8 +247,8 @@
 </div>
 <script>
     $(function(){
-        let flag=false;//false为小，true为大
-        let box=document.getElementsByClassName('box')[0];
+        var flag=false;//false为小，true为大
+        var box=document.getElementsByClassName('box')[0];
         //放大
         function big(){
             $('.box ol li').eq(0).addClass('m1');
@@ -257,10 +277,13 @@
             }else {
                 big();
             }
+            setTimeout(switchSize,2000);
         }
         $('.box').mouseenter(big);
         $('.box').mouseleave(small);
-        $('.box').on('click',switchSize);
+//        $('.box').on('click',switchSize);
+        $('.box').oneTime('2s',switchSize);
+
     });
 </script>
 </body>
