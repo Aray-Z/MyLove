@@ -240,7 +240,7 @@
         }
     </style>
 </head>
-<body background="img/background2.jpg" style="position: relative">
+<body background="img/background2.jpg" style="position: relative" onload="startup()">
 
 <!--<audio id="Audio" src="./audio/geinimeng.mp3" style="display: none" loop="loop" controls autoplay ></audio>-->
 <audio id="Audio" src="./audio/dance.mp3" style="display: none" loop="loop" controls autoplay></audio>
@@ -293,8 +293,11 @@
         }
     };
 
+    function startup() {
+//        setTimeout(music(),2000);
+    }
     window.onload = function () {
-        music();
+//        setTimeout(music(),2000);
     }
 
     function music() {
@@ -349,7 +352,7 @@
     }
     $('.box').mouseenter(big);
     $('.box').mouseleave(small);
-    //        $('.box').on('click',switchSize);
+    $('.box').on('click',music);
     $('.box').oneTime('2s', switchSize);
 
     //    });
