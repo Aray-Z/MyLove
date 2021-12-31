@@ -63,51 +63,51 @@
             background-size: 100% 100%;
         }
         .minbox li:nth-child(1){
-            background-image: url(./img/11.png);
+            background-image: url(./img/1.png);
             transform:translateZ(50px);
         }
         .minbox li:nth-child(2){
-            background-image: url(./img/22.png);
+            background-image: url(./img/2.png);
             transform:rotateX(180deg) translateZ(50px);
         }
         .minbox li:nth-child(3){
-            background-image: url(./img/33.png);
+            background-image: url(./img/3.png);
             transform:rotateX(-90deg) translateZ(50px);
         }
         .minbox li:nth-child(4){
-            background-image: url(./img/44.png);
+            background-image: url(./img/4.png);
             transform:rotateX(90deg) translateZ(50px);
         }
         .minbox li:nth-child(5){
-            background-image: url(./img/55.png);
+            background-image: url(./img/5.png);
             transform:rotateY(-90deg) translateZ(50px);
         }
         .minbox li:nth-child(6){
-            background-image: url(./img/66.png);
+            background-image: url(./img/6.png);
             transform:rotateY(90deg) translateZ(50px);
         }
         .maxbox li:nth-child(1){
-            background-image: url(./img/11.png);
+            background-image: url(./img/1.png);
             transform:translateZ(50px);
         }
         .maxbox li:nth-child(2){
-            background-image: url(./img/22.png);
+            background-image: url(./img/2.png);
             transform:translateZ(50px);
         }
         .maxbox li:nth-child(3){
-            background-image: url(./img/33.png);
+            background-image: url(./img/3.png);
             transform:rotateX(-90deg) translateZ(50px);
         }
         .maxbox li:nth-child(4){
-            background-image: url(./img/44.png);
+            background-image: url(./img/4.png);
             transform:rotateX(90deg) translateZ(50px);
         }
         .maxbox li:nth-child(5){
-            background-image: url(./img/55.png);
+            background-image: url(./img/5.png);
             transform:rotateY(-90deg) translateZ(50px);
         }
         .maxbox li:nth-child(6){
-            background-image: url(./img/66.png);
+            background-image: url(./img/6.png);
             transform:rotateY(90deg) translateZ(50px);
         }
         .maxbox{
@@ -208,6 +208,9 @@
     </style>
 </head>
 <body background="img/background2.jpg">
+<div id=""><!--style="display:none;"-->
+    <audio id="audio" src="./audio/geinimeng.mp3" loop="loop" controls autoplay></audio>
+</div>
 <div class="box-container">
     <div class="box">
         <ul class="minbox" style="position: relative">
@@ -249,10 +252,23 @@
     $(function(){
 
         window.onpageshow = function(event) {
+//            playAudio();
             if (event.persisted) {
                 window.location.reload()
             }
         };
+
+
+//        setInterval("playAudio()",5);
+        
+        function playAudio() {
+            var audio = document.getElementById("Audio");
+            if (audio.paused){
+                audio.paused = false;
+                audio.play();
+
+            }
+        }
 
         var flag=false;//false为小，true为大
         var box=document.getElementsByClassName('box')[0];
